@@ -1,0 +1,2 @@
+curl "https://api.github.com/repos/ColdenCullen/doveralls/releases" | jq '.[0].assets | .[] | select(.name == "doveralls_${TRAVIS_OS_NAME}_travis") | .browser_download_url' | xargs wget -O doveralls
+chmod +x doveralls

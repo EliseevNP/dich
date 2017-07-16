@@ -6,7 +6,7 @@ d:
 os:
   - linux
 install:
-  - wget -q -O - "http://bit.ly/Doveralls" | bash
+  - wget -O doveralls "https://github.com/ColdenCullen/doveralls/releases/download/v1.3.1/doveralls_linux_travis"
   - chmod +x doveralls
 jobs:
   include:

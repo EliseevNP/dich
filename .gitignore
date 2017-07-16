@@ -9,5 +9,5 @@ docs/
 *.lst
 
 # Executable and libs
-dich*
+dich-*
 *.a

@@ -1,0 +1,27 @@
+{
+  "name": "dich",
+  "description": "Simple dependency injection framework for D. Based on endovena similar work.",
+  "copyright": "Copyright © 2017, LLC CERERIS",
+  "license": "MIT",
+  "homepage": "www.cereris.org",
+  "authors": [
+    "LLC CERERIS"
+  ],
+  "sourcePaths": ["./source"],
+  "targetName": "dich",
+  "targetType": "library",
+  "subPackages": [
+    {
+      "name": "tests",
+      "targetName": "dich-test",
+      "description": "Test for DICH",
+      "targetType": "executable",
+      "buildOptions": ["unittests", "coverage"],
+      "mainSourceFile": "tests/main.d",
+      "sourcePaths": ["./source/", "./tests/"],
+      "dependencies": {
+        "bdd": "~>1.1.0"
+      }
+    }
+  ]
+}

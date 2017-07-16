@@ -6,8 +6,7 @@ d:
 os:
   - linux
 install:
-  - wget -q -O - "http://bit.ly/Doveralls" | bash
-  - chmod +x doveralls
+  - dub fetch doveralls
 jobs:
   include:
     - stage: build
@@ -16,5 +15,5 @@ jobs:
       script: dscanner --styleCheck source
       script: dscanner --syntaxCheck source
       script: dub run dich:tests
-      script: ./doveralls
+      script: dub run doveralls
 script: dub build

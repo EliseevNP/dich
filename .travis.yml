@@ -5,6 +5,9 @@ d:
   - ldc
 os:
   - linux
+install:
+  - wget -q -O - "http://bit.ly/Doveralls" | bash
+  - chmod +x doveralls
 jobs:
   include:
     - stage: build
@@ -13,4 +16,5 @@ jobs:
       script: dscanner --styleCheck source
       script: dscanner --syntaxCheck source
       script: dub run dich:tests
-script: echo "OK"
+      script: ./doveralls
+script: dub build

@@ -9,3 +9,5 @@ jobs:
   include:
     - stage: build
       script: dub build
+    - stage: test
+      script: dub run dich:tests

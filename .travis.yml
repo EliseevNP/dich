@@ -8,13 +8,9 @@ os:
 install:
   - wget -O doveralls "https://github.com/ColdenCullen/doveralls/releases/download/v1.3.1/doveralls_linux_travis"
   - chmod +x doveralls
-jobs:
-  include:
-    - stage: build
-      script: dub build
-    - stage: test
-      script: dscanner --styleCheck source
-      script: dscanner --syntaxCheck source
-      script: dub run dich:tests
-      script: ./doveralls
-script: dub run dich:tests
+script:
+  - dub build
+  - dscanner --styleCheck source
+  - dscanner --syntaxCheck source
+  - dub run dich:tests
+  - ./doveralls

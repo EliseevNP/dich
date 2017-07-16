@@ -10,4 +10,6 @@ jobs:
     - stage: build
       script: dub build
     - stage: test
+      script: dscanner --styleCheck source
+      script: dscanner --syntaxCheck source
       script: dub run dich:tests

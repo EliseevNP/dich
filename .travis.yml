@@ -16,4 +16,4 @@ jobs:
       script: dscanner --syntaxCheck source
       script: dub run dich:tests
       script: dub run doveralls
-script: dub build
+script: dub run dich:tests

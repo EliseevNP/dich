@@ -11,3 +11,6 @@ docs/
 # Executable and libs
 dich-*
 *.a
+
+# Doveralls
+Doveralls

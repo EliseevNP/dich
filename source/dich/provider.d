@@ -6,7 +6,7 @@
 
 module dich.provider;
 
-/// 
+///
 interface ProviderInterface
 {
   public:

@@ -4,6 +4,8 @@
    License: MIT
 */
 
+module dich.test;
+
 import BDD;
 
 int main()

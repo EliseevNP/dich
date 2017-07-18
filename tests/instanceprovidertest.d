@@ -1,4 +1,4 @@
-module test.dich.instanceprovidertest.d;
+module test.dich.instanceprovidertest;
 
 import BDD;
 import dich;

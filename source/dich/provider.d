@@ -1,15 +1,20 @@
-/**                                                                                                                                                  
-  Copyright: 2017 © LLC CERERIS                                                                                                                      
-  License: MIT                                                                                                                               
-  Authors: LLC CERERIS                                                                                                                               
+/**
+  Copyright: 2017 © LLC CERERIS
+  License: MIT
+  Authors: LLC CERERIS
 */
 
 module dich.provider;
 
-///
+/// Provides objects
 interface ProviderInterface
 {
   public:
+    /** Get object
+
+      Returns:
+        Provided $(D Object)
+    */
     Object get();
 }
 

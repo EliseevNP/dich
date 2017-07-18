@@ -19,7 +19,7 @@ interface ReuseInterface
         provider: Object provider
 
       Returns:
-        Reuse object
+        Reuse $(D Object)
     */
     Object get(string key, ProviderInterface provider);
 }
@@ -37,7 +37,7 @@ class Transient: ReuseInterface
         provider: Object provider
 
       Returns:
-        Reuse object
+        Reuse $(D Object)
     */
     override Object get(string key, ProviderInterface provider)
     {

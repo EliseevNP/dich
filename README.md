@@ -15,7 +15,7 @@ dub run dich:tests
 
 ## Documentation
 
-The documentation is generated automatically (ddox) and is accessible by reference [documentation API!](https://llc-cereris.github.io/dich/)
+The documentation is generated automatically (ddox) and is accessible by reference [documentation API](https://llc-cereris.github.io/dich/)
 
 ## License
 

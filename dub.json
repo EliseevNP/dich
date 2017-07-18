@@ -14,7 +14,7 @@
     {
       "name": "tests",
       "targetName": "dich-test",
-      "description": "Test for DICH",
+      "description": "Tests for DICH",
       "targetType": "executable",
       "buildOptions": ["unittests", "coverage"],
       "mainSourceFile": "tests/main.d",

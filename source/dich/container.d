@@ -53,7 +53,7 @@ class Container
       Binding[] binding = filterExactly!I(name);
       if(binding.empty)
       {
-        throw new ResolveException("Type not registered.", fullyQualifiedName!I, name);
+        throw new ResolveException("Type is not registered!", fullyQualifiedName!I, name);
       }
 
       return resolve!I(binding[0]);

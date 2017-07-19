@@ -28,7 +28,7 @@ class Container
 	/** Register reuse interfaces
 	
 	  Params:
-		Class - class instance to register reuse interface (Transient, Singleton)
+		Class = Class instance to register reuse interface (Transient, Singleton)
     */
     void bindReuse(Class)()
     {
@@ -44,7 +44,9 @@ class Container
 	/** Register reuse objects
 	
 	  Params:
-		instance - object of C class to register in container
+	    С = Class type
+	    R = Reuse interface (Transient, Singleton)
+		instance = Object of C class to register in container
 		
 	  Examples:
         ---
@@ -63,7 +65,9 @@ class Container
 	/** Register reuse objects through InstanceProvider
 	
 	  Params:
-		provider - object of InstanceProvider class to register in container
+	    I = Interface type
+	    R = Reuse interface (Transient, Singleton)
+		provider = Object of InstanceProvider class to register in container
 		
 	  Examples:
         ---
@@ -83,8 +87,10 @@ class Container
 	/** Register reuse objects through InstanceProvider specifying its name
 	
 	  Params:
-		provider - object of InstanceProvider class to register in container
-		name - any string which allows to get instances by its name
+	    I = Interface type
+	    R = Reuse interface (Transient, Singleton)
+		provider = Object of InstanceProvider class to register in container
+		name = A string which allows to get instances by its name
 		
 	  Examples:
         ---
@@ -109,7 +115,8 @@ class Container
 	/** Get reuse objects by its name
 	
 	  Params:
-		name - name of instance specified in register function
+	    I = Interface type
+		name - Name of instance specified in register function
 		
 	  Examples:
         ---
@@ -121,6 +128,9 @@ class Container
 		container.register!(MyInterface)(myClassInstance, "My best class");
 		auto myClass = container.get!(MyInterface)("My best class");
 		---
+
+	  Returns:
+	    Instance as an interface type
     */
     I get(I)(string name)
     {
@@ -134,7 +144,9 @@ class Container
     }
 
 	/** Get reuse objects by its class
-	
+	  Params:
+	    T = Interface type
+	  
 	  Examples:
         ---
         interface MyInterface{};
@@ -145,6 +157,9 @@ class Container
 		container.register!(MyInterface)(myClassInstance)
 		auto myClass = container.get!(MyInterface)();
 		---
+
+	  Returns:
+	    Instance as an interface type
     */
     T get(T)()
     {

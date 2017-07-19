@@ -15,8 +15,8 @@ interface ReuseInterface
     /** Get reuse object
 
       Params:
-        key: Reuse object name
-        provider: Object provider
+        key = Reuse object name
+        provider = Object provider
 
       Returns:
         Reuse $(D Object)
@@ -33,8 +33,8 @@ class Transient: ReuseInterface
     /** Get transient reuse component 
 
       Params:
-        key: Not used parameter
-        provider: Object provider
+        key = Not used parameter
+        provider = Object provider
 
       Returns:
         Reuse $(D Object)
@@ -54,8 +54,8 @@ class Singleton: ReuseInterface
     /** Get singleton reuse component 
 
       Params:
-        key: Unique name for Singleton
-        provider: Object provider
+        key = Unique name for Singleton
+        provider = Object provider
 
       Returns:
         Reuse object

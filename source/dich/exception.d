@@ -15,9 +15,9 @@ class ResolveException: Exception
     /** Creates a ResolveException object
     
       Params:
-        message - an exception message
-        key - a type of an exceptioned object
-        name - a name of an exceptioned object
+        message = An exception message
+        key = A type of an exceptioned object
+        name = A name of an exceptioned object
     */
     this(string message, string key, string name)
     {
@@ -27,8 +27,8 @@ class ResolveException: Exception
     /** Creates a ResolveException object
     
       Params:
-        message - an exception message
-        key - a type of an exceptioned object
+        message = An exception message
+        key = A type of an exceptioned object
     */
     this(string message, string key)
     {
@@ -43,8 +43,8 @@ class RegistrationException : Exception
     /** Creates a RegistrationException object
     
       Params:
-        message - an exception message
-        key - a type of an exceptioned object
+        message = An exception message
+        key = A type of an exceptioned object
     */
     this(string message, string key)
     {

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head>
+<meta charset="UTF-8"/>
+<title>Container.get - multiple declarations</title>
+<link rel="stylesheet" type="text/css" href="../../styles/ddox.css"/>
+<link rel="stylesheet" href="../../prettify/prettify.css" type="text/css"/>
+<script type="text/javascript" src="../../scripts/jquery.js">/**/</script><script type="text/javascript" src="../../scripts/ddox.js">/**/</script></head><body onload="setupDdox();"><nav id="main-nav"><noscript><p style="color: red">The search functionality needs JavaScript enabled</p></noscript><div id="symbolSearchPane" style="display: none"><form action="#" method="GET">
+<input id="symbolSearch" type="text" name="q" placeholder="Search for symbols" autocomplete="off" onchange="performSymbolSearch(40);" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/></form><ul id="symbolSearchResults" class="symbolList" style="display: none"></ul><script type="application/javascript" src="../../symbols.js"></script><script type="application/javascript">var symbolSearchRootDir = "../../";
+$('#symbolSearchPane').show();</script></div><ul class="tree-view"><li class="tree-view "><div class="package ">dich</div><ul class="tree-view"><li><div class="module "><a href="../../dich/binding.html">binding</a></div></li><li><div class="module selected"><a href="../../dich/container.html">container</a></div></li><li><div class="module "><a href="../../dich/exception.html">exception</a></div></li><li><div class="module "><a href="../../dich/provider.html">provider</a></div></li><li><div class="module "><a href="../../dich/reuse.html">reuse</a></div></li></ul></li></ul></nav><div id="main-contents"><h1>Container.get - multiple declarations</h1><nav class="page-nav"><ul><li><a href="#0">Function <code>Container.get</code></a></li><li><a href="#1">Function <code>Container.get</code></a></li></ul></nav><h2 id="0">Function Container.get</h2><p>Get reuse objects by its class
+</p><div class="prototype"><code class="lang-d"><div class="single-prototype">
+<span class="pln">T</span> <span class="pln">get(T)
+<span class="pun">()</span><span class="pun">;</span></div></code></div>
+<section><h3>Parameters</h3>
+<table><col class="caption"><tr><th>Name</th><th>Description</th></tr>
+<tr><td id="T">T</td><td> Interface type</td></tr>
+</table>
+</section>
+<section><h3>Examples</h3>
+<pre class="code"><code class="lang-d"><span class="pln">      </span><span class="kwd">interface </span><span class="typ">MyInterface</span><span class="pun">{};
+      </span><span class="kwd">class </span><span class="typ">MyClass</span><span class="pun">: </span><span class="typ">MyInterface</span><span class="pun">{};
+
+</span><span class="kwd">auto </span><span class="pln">container </span><span class="pun">= </span><span class="kwd">new <a href="../../dich/container/Container.html"></span><span class="typ">Container</span></a><span class="pun">();
+</span><span class="kwd">auto </span><span class="pln">myClassInstance </span><span class="pun">= </span><span class="kwd">new </span><span class="typ">InstanceProvider</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">MyClass</span><span class="pun">());
+</span><span class="pln">container<wbr/></span><span class="pun">.</span><span class="pln">register</span><span class="pun">!(</span><span class="typ">MyInterface</span><span class="pun">)(</span><span class="pln">myClassInstance</span><span class="pun">)
+</span><span class="kwd">auto </span><span class="pln">myClass </span><span class="pun">= </span><span class="pln">container<wbr/></span><span class="pun">.</span><span class="pln">get</span><span class="pun">!(</span><span class="typ">MyInterface</span><span class="pun">)();</span></code></pre>
+</section>
+<section><h3>Returns</h3>
+<p>Instance as an interface type
+</p>
+</section>
+<h2 id="1">Function Container.get</h2><p>Get reuse objects by its name
+</p><div class="prototype"><code class="lang-d"><div class="single-prototype">
+<span class="pln">I</span> <span class="pln">get</span>(I)
+<span class="pun">(</span>
+<br/>
+&nbsp;&nbsp;<span class="typ">string</span> <span class="pln">name</span>
+<br/>
+<span class="pun">)</span><span class="pun">;</span></div></code></div><section></section>
+
+<section><h3>Parameters</h3>
+<table><col class="caption"><tr><th>Name</th><th>Description</th></tr>
+<tr><td id="I">I</td><td> Interface type</td></tr>
+<tr><td id="name">name</td><td> Name of instance specified in register function</td></tr>
+</table>
+</section>
+<section><h3>Examples</h3>
+<pre class="code"><code class="lang-d"><span class="pln">      </span><span class="kwd">interface </span><span class="typ">MyInterface</span><span class="pun">{};
+      </span><span class="kwd">class </span><span class="typ">MyClass</span><span class="pun">: </span><span class="typ">MyInterface</span><span class="pun">{};
+
+</span><span class="kwd">auto </span><span class="pln">container </span><span class="pun">= </span><span class="kwd">new <a href="../../dich/container/Container.html"></span><span class="typ">Container</span></a><span class="pun">();
+</span><span class="kwd">auto </span><span class="pln">myClassInstance </span><span class="pun">= </span><span class="kwd">new </span><span class="typ">InstanceProvider</span><span class="pun">(</span><span class="kwd">new </span><span class="typ">MyClass</span><span class="pun">());
+</span><span class="pln">container<wbr/></span><span class="pun">.</span><span class="pln">register</span><span class="pun">!(</span><span class="typ">MyInterface</span><span class="pun">)(</span><span class="pln">myClassInstance</span><span class="pun">, </span><span class="str">"My best class"</span><span class="pun">);
+</span><span class="kwd">auto </span><span class="pln">myClass </span><span class="pun">= </span><span class="pln">container<wbr/></span><span class="pun">.</span><span class="pln">get</span><span class="pun">!(</span><span class="typ">MyInterface</span><span class="pun">)(</span><span class="str">"My best class"</span><span class="pun">);</span></code></pre>
+</section>
+<section><h3>Returns</h3>
+<p>Instance as an interface type
+</p>
+</section>
+
+<footer><table class="license-info"><tr><th>Authors</th><td><p>LLC CERERIS
+</p>
+</td></tr><tr><th>Copyright</th><td><p>2017 © LLC CERERIS
+</p>
+</td></tr><tr><th>License</th><td><p>MIT
+</p>
+</td></tr></table><p class="faint">Generated using the DDOX documentation generator</p></footer></div></body></html>

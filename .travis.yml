@@ -13,6 +13,7 @@ script:
   - dscanner --syntaxCheck source
   - dscanner --sloc source
   - dub run dich:tests
+  - rm tests*.lst
   - ./doveralls
   - dub build --build=ddox
 deploy:

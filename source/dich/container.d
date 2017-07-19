@@ -14,7 +14,7 @@ import std.algorithm;
 import std.array;
 import std.traits;
 
-/// Provides DI entity. Represents a container to register instanes with provider
+/// Provides DI entity. Represents a container to register instances with provider
 class Container
 {
   public:

@@ -9,7 +9,7 @@ module dich.binding;
 import dich.provider;
 import dich.reuse;
 
-package struct Binding
+struct Binding
 {
   public:
    string fullyQualifiedName;

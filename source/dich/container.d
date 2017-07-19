@@ -12,6 +12,7 @@ import std.traits;
 class Container
 {
   public:
+    /// Creates a Container object
     this()
     {
       bindReuse!Transient;

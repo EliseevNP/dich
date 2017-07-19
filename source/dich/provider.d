@@ -22,6 +22,7 @@ interface ProviderInterface
 class InstanceProvider: ProviderInterface
 {
   public:
+    /// Creates an InstanceProvider object
     this(Object instance)
     {
       _instance = instance;

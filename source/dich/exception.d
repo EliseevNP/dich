@@ -6,11 +6,24 @@ import std.string;
 class ResolveException: Exception
 {
   public:
+    /** Creates a ResolveException object
+    
+      Params:
+        message - an exception message
+        key - a type of an exceptioned object
+        name - a name of an exceptioned object
+    */
     this(string message, string key, string name)
     {
       super(format("Exception while resolving type %s named %s: %s", key, name, message));
     }
 
+    /** Creates a ResolveException object
+    
+      Params:
+        message - an exception message
+        key - a type of an exceptioned object
+    */
     this(string message, string key)
     {
       super(format("Exception while resolving type %s: %s", key, message));
@@ -21,6 +34,12 @@ class ResolveException: Exception
 class RegistrationException : Exception
 {
   public:
+    /** Creates a RegistrationException object
+    
+      Params:
+        message - an exception message
+        key - a type of an exceptioned object
+    */
     this(string message, string key)
     {
       super(format("Exception while registering type %s: %s", key, message));

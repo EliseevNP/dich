@@ -1,3 +1,9 @@
+/**
+  Copyright: 2017 © LLC CERERIS
+  License: MIT
+  Authors: LLC CERERIS
+*/
+
 module dich.binding;
 
 import dich.provider;

@@ -44,7 +44,6 @@ class Container
 	/** Register reuse objects
 	
 	  Params:
-	    С = Class type
 	    R = Reuse interface (Transient, Singleton)
 		instance = Object of C class to register in container
 		
@@ -54,7 +53,7 @@ class Container
         
 		auto container = new Container();
 		auto myClass = new MyClass();
-		container.register!(MyClass[, Singleton])(myClass);
+		container.register!(MyClass)(myClass);
 		---
     */
     void register(C, R: ReuseInterface = Transient)(C instance)
@@ -116,7 +115,7 @@ class Container
 	
 	  Params:
 	    I = Interface type
-		name - Name of instance specified in register function
+		name = Name of instance specified in register function
 		
 	  Examples:
         ---

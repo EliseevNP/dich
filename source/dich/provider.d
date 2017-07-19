@@ -18,6 +18,7 @@ interface ProviderInterface
     Object get();
 }
 
+/// Provides objects for DI
 class InstanceProvider: ProviderInterface
 {
   public:
@@ -26,6 +27,11 @@ class InstanceProvider: ProviderInterface
       _instance = instance;
     }
 
+	/** Get object
+
+      Returns:
+        Provided $(D Object)
+    */
     Object get()
     {
       return _instance;

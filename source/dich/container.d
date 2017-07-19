@@ -8,6 +8,7 @@ import std.algorithm;
 import std.array;
 import std.traits;
 
+/// Provides DI entity. Represents a container to register instanes with provider
 class Container
 {
   public:
@@ -17,6 +18,11 @@ class Container
       bindReuse!Singleton;
     }
 
+	/** Register reuse interfaces
+	
+	  Params:
+		Class - class instance to register reuse interface (Transient, Singleton)
+    */
     void bindReuse(Class)()
     {
       immutable key = fullyQualifiedName!Class;
@@ -28,16 +34,61 @@ class Container
       _scopes[key] = new Class();
     }
 
+	/** Register reuse objects
+	
+	  Params:
+		instance - object of C class to register in container
+		
+	  Examples:
+        ---
+        class MyClass{};
+        
+		auto container = new Container();
+		auto myClass = new MyClass();
+		container.register!(MyClass[, Singleton])(myClass);
+		---
+    */
     void register(C, R: ReuseInterface = Transient)(C instance)
     {
       register!(C, R)(new InstanceProvider(instance), "");
     }
 
+	/** Register reuse objects through InstanceProvider
+	
+	  Params:
+		provider - object of InstanceProvider class to register in container
+		
+	  Examples:
+        ---
+        interface MyInterface{};
+        class MyClass: MyInterface{};
+        
+		auto container = new Container();
+		auto myClassInstance = new InstanceProvider(new MyClass());
+		container.register!(MyInterface)(myClassInstance);
+		---
+    */
     void register(I, R: ReuseInterface = Transient)(ProviderInterface provider)
     {
       this.register!(I, R)(provider, "");
     }
 
+	/** Register reuse objects through InstanceProvider specifying its name
+	
+	  Params:
+		provider - object of InstanceProvider class to register in container
+		name - any string which allows to get instances by its name
+		
+	  Examples:
+        ---
+        interface MyInterface{};
+        class MyClass: MyInterface{};
+        
+		auto container = new Container();
+		auto myClassInstance = new InstanceProvider(new MyClass());
+		container.register!(MyInterface)(myClassInstance, "My best class");
+		---
+    */
     void register(I, R: ReuseInterface = Transient)(ProviderInterface provider, string name)
     {
       if(exists!I(name))
@@ -48,6 +99,22 @@ class Container
       _bindings ~= createBinding!(I, R)(provider, name);
     }
 
+	/** Get reuse objects by its name
+	
+	  Params:
+		name - name of instance specified in register function
+		
+	  Examples:
+        ---
+        interface MyInterface{};
+        class MyClass: MyInterface{};
+        
+		auto container = new Container();
+		auto myClassInstance = new InstanceProvider(new MyClass());
+		container.register!(MyInterface)(myClassInstance, "My best class");
+		auto myClass = container.get!(MyInterface)("My best class");
+		---
+    */
     I get(I)(string name)
     {
       Binding[] binding = filterExactly!I(name);
@@ -59,6 +126,19 @@ class Container
       return resolve!I(binding[0]);
     }
 
+	/** Get reuse objects by its class
+	
+	  Examples:
+        ---
+        interface MyInterface{};
+        class MyClass: MyInterface{};
+        
+		auto container = new Container();
+		auto myClassInstance = new InstanceProvider(new MyClass());
+		container.register!(MyInterface)(myClassInstance)
+		auto myClass = container.get!(MyInterface)();
+		---
+    */
     T get(T)()
     {
       // If want get array

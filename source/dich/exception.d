@@ -2,6 +2,7 @@ module dich.exception;
 
 import std.string;
 
+/// Provides an Exception when trying to get an unregistered instance
 class ResolveException: Exception
 {
   public:
@@ -16,6 +17,7 @@ class ResolveException: Exception
     }
 }
 
+/// Provides an Exception when trying to register an instance twice
 class RegistrationException : Exception
 {
   public:
